@@ -13,17 +13,18 @@
  * filename inside that file, the constructor creates a Frameset and puts in inside the frames {@link ArrayList}.
  */
 Frameset_list_ptr create_frameset_list() {
-    Frameset_list_ptr frameset = malloc(sizeof(Frameset_list));
+    Frameset_list_ptr frameset_list = malloc(sizeof(Frameset_list));
+    frameset_list->frames = create_array_list();
     Xml_element_ptr framesNode, frameSetNode;
     Xml_document_ptr doc = create_xml_document("turkish-propbank.xml");
     parse(doc);
     framesNode = doc->root;
     frameSetNode = framesNode->first_child;
     while (frameSetNode != NULL){
-        add_frameset(frameset, create_frameset2(frameSetNode));
+        add_frameset(frameset_list, create_frameset2(frameSetNode));
         frameSetNode = frameSetNode->next_sibling;
     }
-    return frameset;
+    return frameset_list;
 }
 
 void free_frameset_list(Frameset_list_ptr frameset_list) {

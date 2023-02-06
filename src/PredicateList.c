@@ -88,5 +88,5 @@ Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char *lemma) {
  * @return All lemma in the predicate list.
  */
 Array_list_ptr get_lemma_list(Predicate_list_ptr predicate_list) {
-    return key_value_list(predicate_list->list);
+    return key_list(predicate_list->list);
 }

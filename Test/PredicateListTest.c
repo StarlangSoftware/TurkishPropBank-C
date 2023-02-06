@@ -5,6 +5,7 @@
 #include "../src/PredicateList.h"
 #include <stdio.h>
 #include <CounterHashMap.h>
+#include <stdlib.h>
 
 void testPredicateSize(Predicate_list_ptr predicate_list){
     if (8656 != size_of_predicate_list(predicate_list)){
@@ -22,6 +23,7 @@ void testRoleSetSize(Predicate_list_ptr predicate_list){
     if (10685 != count){
         printf("Test failed in testRoleSetSize\n");
     }
+    free_array_list(lemmaList, NULL);
 }
 
 void testRoleSize(Predicate_list_ptr predicate_list){
@@ -37,6 +39,7 @@ void testRoleSize(Predicate_list_ptr predicate_list){
     if (27080 != count){
         printf("Test failed in testRoleSetSize\n");
     }
+    free_array_list(lemmaList, NULL);
 }
 
 void testFunction(Predicate_list_ptr predicate_list){
@@ -69,6 +72,8 @@ void testFunction(Predicate_list_ptr predicate_list){
     if (2395 != count_counter_hash_map(functionList, "gol")){
         printf("Test failed in testFunction\n");
     }
+    free_array_list(lemmaList, NULL);
+    free_counter_hash_map(functionList, free);
 }
 
 void testN(Predicate_list_ptr predicate_list){
@@ -101,6 +106,8 @@ void testN(Predicate_list_ptr predicate_list){
     if (72 != count_counter_hash_map(nList, "m")){
         printf("Test failed in testN\n");
     }
+    free_array_list(lemmaList, NULL);
+    free_counter_hash_map(nList, free);
 }
 
 int main(){
@@ -109,4 +116,5 @@ int main(){
     testRoleSetSize(predicate_list);
     testFunction(predicate_list);
     testN(predicate_list);
+    free_predicate_list(predicate_list);
 }
