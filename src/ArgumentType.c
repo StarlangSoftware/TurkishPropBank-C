@@ -93,7 +93,7 @@ Argument_type get_arguments(char* arguments_type){
  * @param argument_type  Type of the argument in {@link ArgumentType} form
  * @return Type of the argument in string form
  */
-char* get_propbank_type(Argument_type argument_type){
+char *get_propbank_type(Argument_type argument_type){
     switch (argument_type){
         case ARG0:
             return "ARG0";

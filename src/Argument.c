@@ -35,7 +35,7 @@ void free_argument(Argument_ptr argument) {
  */
 Argument_ptr create_argument2(char *argument) {
     Argument_ptr result = malloc(sizeof(Argument));
-    if (strchr(argument, '$') != NULL){
+    if (strchr(argument, '$') != NULL) {
         Array_list_ptr items = str_split(argument, '$');
         result->argument_type = array_list_get(items, 0);
         result->id = array_list_get(items, 1);

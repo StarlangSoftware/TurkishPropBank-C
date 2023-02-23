@@ -9,17 +9,21 @@
 #include <HashMap/HashSet.h>
 #include "Predicate.h"
 
-struct predicate_list{
+struct predicate_list {
     Hash_map_ptr list;
 };
 
 typedef struct predicate_list Predicate_list;
-typedef Predicate_list* Predicate_list_ptr;
+typedef Predicate_list *Predicate_list_ptr;
 
 Predicate_list_ptr create_predicate_list();
+
 void free_predicate_list(Predicate_list_ptr predicate_list);
+
 int size_of_predicate_list(Predicate_list_ptr predicate_list);
-Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char* lemma);
+
+Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char *lemma);
+
 Array_list_ptr get_lemma_list(Predicate_list_ptr predicate_list);
 
 #endif //PROPBANK_PREDICATELIST_H

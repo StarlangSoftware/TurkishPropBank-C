@@ -32,7 +32,7 @@ void free_predicate(Predicate_ptr predicate) {
  * @param roleSet  RoleSet to be added
  */
 void add_roleset(Predicate_ptr predicate, Roleset_ptr roleset) {
-    array_list_add(predicate->rolesets,roleset);
+    array_list_add(predicate->rolesets, roleset);
 }
 
 /**
@@ -61,9 +61,9 @@ Roleset_ptr get_roleset(Predicate_ptr predicate, int index) {
  * @return {@link RoleSet} which has the given id.
  */
 Roleset_ptr get_roleset_with_id(Predicate_ptr predicate, char *role_id) {
-    for (int i = 0; i < predicate->rolesets->size; i++){
+    for (int i = 0; i < predicate->rolesets->size; i++) {
         Roleset_ptr roleset = array_list_get(predicate->rolesets, i);
-        if (strcmp(roleset->id, role_id) == 0){
+        if (strcmp(roleset->id, role_id) == 0) {
             return roleset;
         }
     }

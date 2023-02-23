@@ -21,26 +21,26 @@ Predicate_list_ptr create_predicate_list() {
     parse(xmlDocument);
     framesNode = xmlDocument->root;
     frameSetNode = framesNode->first_child;
-    while (frameSetNode != NULL){
+    while (frameSetNode != NULL) {
         predicateNode = frameSetNode->first_child;
-        while (predicateNode != NULL){
-            if (has_attributes(predicateNode)){
-                char* lemma = get_attribute_value(predicateNode, "lemma");
+        while (predicateNode != NULL) {
+            if (has_attributes(predicateNode)) {
+                char *lemma = get_attribute_value(predicateNode, "lemma");
                 Predicate_ptr newPredicate = create_predicate(lemma);
                 roleSetNode = predicateNode->first_child;
-                while (roleSetNode != NULL){
-                    if (has_attributes(roleSetNode)){
-                        char* id = get_attribute_value(roleSetNode, "id");
-                        char* name = get_attribute_value(roleSetNode, "name");
+                while (roleSetNode != NULL) {
+                    if (has_attributes(roleSetNode)) {
+                        char *id = get_attribute_value(roleSetNode, "id");
+                        char *name = get_attribute_value(roleSetNode, "name");
                         Roleset_ptr newRoleSet = create_roleset(id, name);
                         rolesNode = roleSetNode->first_child;
-                        if (rolesNode != NULL){
+                        if (rolesNode != NULL) {
                             roleNode = rolesNode->first_child;
-                            while (roleNode != NULL){
-                                if (has_attributes(roleNode)){
-                                    char* description = get_attribute_value(roleNode, "descr");
-                                    char* f = get_attribute_value(roleNode, "f");
-                                    char* n = get_attribute_value(roleNode, "n");
+                            while (roleNode != NULL) {
+                                if (has_attributes(roleNode)) {
+                                    char *description = get_attribute_value(roleNode, "descr");
+                                    char *f = get_attribute_value(roleNode, "f");
+                                    char *n = get_attribute_value(roleNode, "n");
                                     add_role(newRoleSet, create_role(description, f, n));
                                 }
                                 roleNode = roleNode->next_sibling;

@@ -30,7 +30,7 @@ Frameset_ptr create_frameset2(Xml_element_ptr frameset_node) {
     result->frameset_arguments = create_array_list();
     result->id = get_attribute_value(frameset_node, "id");
     Xml_element_ptr argument = frameset_node->first_child;
-    while (argument != NULL){
+    while (argument != NULL) {
         Frameset_argument_ptr framesetArgument = create_frameset_argument(get_attribute_value(argument, "name"),
                                                                           argument->pcData,
                                                                           get_attribute_value(argument, "function"));
@@ -47,9 +47,9 @@ Frameset_ptr create_frameset2(Xml_element_ptr frameset_node) {
  * @return true if the {@link Argument} with the given argumentType exists, false otherwise.
  */
 int contains_argument(Frameset_ptr frameset, Argument_type argument_type) {
-    for (int i = 0; i < frameset->frameset_arguments->size; i++){
+    for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
-        if (get_arguments(frameset_argument->argument_type) == argument_type){
+        if (get_arguments(frameset_argument->argument_type) == argument_type) {
             return 1;
         }
     }
@@ -74,7 +74,7 @@ void add_argument(Frameset_ptr frameset, char *type, char *definition, char *fun
             break;
         }
     }
-    if (!check){
+    if (!check) {
         Frameset_argument_ptr frameset_argument = create_frameset_argument(type, definition, function);
         array_list_add(frameset->frameset_arguments, frameset_argument);
     }
@@ -91,12 +91,13 @@ void delete_argument(Frameset_ptr frameset, char *type, char *definition) {
     int index = -1;
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
-        if (strcmp(frameset_argument->argument_type, type) == 0 && strcmp(frameset_argument->definition, definition) == 0) {
+        if (strcmp(frameset_argument->argument_type, type) == 0 &&
+            strcmp(frameset_argument->definition, definition) == 0) {
             index = i;
             break;
         }
     }
-    if (index != -1){
+    if (index != -1) {
         array_list_remove(frameset->frameset_arguments, index, (void (*)(void *)) free_frameset_argument);
     }
 }

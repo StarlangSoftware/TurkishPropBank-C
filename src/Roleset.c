@@ -64,9 +64,9 @@ int size_of_roleset(Roleset_ptr roleset) {
  * @return The role with the given argument number n.
  */
 Role_ptr get_role_with_argument(Roleset_ptr roleset, char *n) {
-    for (int i = 0; i < roleset->roles->size; i++){
+    for (int i = 0; i < roleset->roles->size; i++) {
         Role_ptr role = array_list_get(roleset->roles, i);
-        if (strcmp(role->n, n) == 0){
+        if (strcmp(role->n, n) == 0) {
             return role;
         }
     }

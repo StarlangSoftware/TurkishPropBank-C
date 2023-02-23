@@ -13,7 +13,7 @@
  * @param function  Function of the frameset argument
  * @param definition  Definition of the frameset argument
  */
-Frameset_argument_ptr create_frameset_argument(char *argument_type, char *definition, char* function) {
+Frameset_argument_ptr create_frameset_argument(char *argument_type, char *definition, char *function) {
     Frameset_argument_ptr result = malloc(sizeof(Frameset_argument));
     result->argument_type = str_copy(result->argument_type, argument_type);
     result->function = str_copy(result->function, function);

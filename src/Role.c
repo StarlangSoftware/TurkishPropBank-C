@@ -35,8 +35,8 @@ void free_role(Role_ptr role) {
  * @return Argument type for this role.
  */
 Argument_type get_argument_type(Role_ptr role) {
-    char* upper = uppercase_en(role->f);
-    char* s = str_concat("ARG", upper);
+    char *upper = uppercase_en(role->f);
+    char *s = str_concat("ARG", upper);
     Argument_type result = get_arguments(s);
     free(upper);
     free(s);
