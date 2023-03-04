@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <StringUtils.h>
+#include <stdbool.h>
 #include "Frameset.h"
 #include "FramesetArgument.h"
 
@@ -46,14 +47,14 @@ Frameset_ptr create_frameset2(Xml_element_ptr frameset_node) {
  * @param argument_type  ArgumentType of the searched {@link Argument}
  * @return true if the {@link Argument} with the given argumentType exists, false otherwise.
  */
-int contains_argument(Frameset_ptr frameset, Argument_type argument_type) {
+bool contains_argument(Frameset_ptr frameset, Argument_type argument_type) {
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
         if (get_arguments(frameset_argument->argument_type) == argument_type) {
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
 }
 
 /**

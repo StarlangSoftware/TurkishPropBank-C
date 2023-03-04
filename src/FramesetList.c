@@ -82,12 +82,12 @@ Frameset_ptr get_frameset_with_id(Frameset_list_ptr frameset_list, char *synset_
  * @param synSetId  Id of the searched {@link Frameset}
  * @return true if the {@link Frameset} with the given id exists, false otherwise.
  */
-int frame_exists(Frameset_list_ptr frameset_list, char *synset_id) {
+bool frame_exists(Frameset_list_ptr frameset_list, char *synset_id) {
     for (int i = 0; i < frameset_list->frames->size; i++) {
         Frameset_ptr frame = array_list_get(frameset_list->frames, i);
         if (strcmp(frame->id, synset_id) == 0) {
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
 }

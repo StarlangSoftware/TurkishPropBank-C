@@ -6,6 +6,7 @@
 #define PROPBANK_FRAMESETLIST_H
 
 #include <ArrayList.h>
+#include <stdbool.h>
 #include "Frameset.h"
 
 struct frameset_list {
@@ -27,6 +28,6 @@ void add_frameset(Frameset_list_ptr frameset_list, Frameset_ptr frameset);
 
 Frameset_ptr get_frameset_with_id(Frameset_list_ptr frameset_list, char *synset_id);
 
-int frame_exists(Frameset_list_ptr frameset_list, char *synset_id);
+bool frame_exists(Frameset_list_ptr frameset_list, char *synset_id);
 
 #endif //PROPBANK_FRAMESETLIST_H
