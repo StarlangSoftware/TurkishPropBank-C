@@ -13,9 +13,9 @@ struct argument {
 typedef struct argument Argument;
 typedef Argument *Argument_ptr;
 
-Argument_ptr create_argument(char *argument_type, char *id);
+Argument_ptr create_argument(const char *argument_type, const char *id);
 
-Argument_ptr create_argument2(char *argument);
+Argument_ptr create_argument2(const char *argument);
 
 void free_argument(Argument_ptr argument);
 

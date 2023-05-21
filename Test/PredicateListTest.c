@@ -43,8 +43,8 @@ void testRoleSize(Predicate_list_ptr predicate_list) {
 }
 
 void testFunction(Predicate_list_ptr predicate_list) {
-    Counter_hash_map_ptr functionList = create_counter_hash_map((unsigned int (*)(void *, int)) hash_function_string,
-                                                                (int (*)(void *, void *)) compare_string);
+    Counter_hash_map_ptr functionList = create_counter_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
+                                                                (int (*)(const void *, const void *)) compare_string);
     Array_list_ptr lemmaList = get_lemma_list(predicate_list);
     for (int i = 0; i < lemmaList->size; i++) {
         char *lemma = array_list_get(lemmaList, i);
@@ -77,8 +77,8 @@ void testFunction(Predicate_list_ptr predicate_list) {
 }
 
 void testN(Predicate_list_ptr predicate_list) {
-    Counter_hash_map_ptr nList = create_counter_hash_map((unsigned int (*)(void *, int)) hash_function_string,
-                                                         (int (*)(void *, void *)) compare_string);
+    Counter_hash_map_ptr nList = create_counter_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
+                                                         (int (*)(const void *, const void *)) compare_string);
     Array_list_ptr lemmaList = get_lemma_list(predicate_list);
     for (int i = 0; i < lemmaList->size; i++) {
         char *lemma = array_list_get(lemmaList, i);

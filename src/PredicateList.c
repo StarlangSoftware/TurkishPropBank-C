@@ -14,8 +14,8 @@
  */
 Predicate_list_ptr create_predicate_list() {
     Predicate_list_ptr result = malloc(sizeof(Predicate_list));
-    result->list = create_hash_map((unsigned int (*)(void *, int)) hash_function_string,
-                                   (int (*)(void *, void *)) compare_string);
+    result->list = create_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
+                                   (int (*)(const void *, const void *)) compare_string);
     Xml_element_ptr framesNode, frameSetNode, predicateNode, roleSetNode, rolesNode, roleNode;
     Xml_document_ptr xmlDocument = create_xml_document("english-propbank.xml");
     parse(xmlDocument);
@@ -69,7 +69,7 @@ void free_predicate_list(Predicate_list_ptr predicate_list) {
  *
  * @return the size of the list {@link HashMap}.
  */
-int size_of_predicate_list(Predicate_list_ptr predicate_list) {
+int size_of_predicate_list(const Predicate_list* predicate_list) {
     return predicate_list->list->count;
 }
 
@@ -79,7 +79,7 @@ int size_of_predicate_list(Predicate_list_ptr predicate_list) {
  * @param lemma  Lemma of the searched predicate
  * @return {@link Predicate} which has the given lemma.
  */
-Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char *lemma) {
+Predicate_ptr get_predicate(const Predicate_list* predicate_list, const char *lemma) {
     return hash_map_get(predicate_list->list, lemma);
 }
 
@@ -87,6 +87,6 @@ Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char *lemma) {
  * The method returns all lemma in the predicate list.
  * @return All lemma in the predicate list.
  */
-Array_list_ptr get_lemma_list(Predicate_list_ptr predicate_list) {
+Array_list_ptr get_lemma_list(const Predicate_list* predicate_list) {
     return key_list(predicate_list->list);
 }

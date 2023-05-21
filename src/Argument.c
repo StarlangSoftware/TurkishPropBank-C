@@ -13,7 +13,7 @@
  * @param argument_type  Type of the argument
  * @param id  Id of the argument
  */
-Argument_ptr create_argument(char *argument_type, char *id) {
+Argument_ptr create_argument(const char *argument_type, const char *id) {
     Argument_ptr result = malloc(sizeof(Argument));
     result->argument_type = str_copy(result->argument_type, argument_type);
     result->id = str_copy(result->id, id);
@@ -33,7 +33,7 @@ void free_argument(Argument_ptr argument) {
  *
  * @param argument  Argument string containing the argumentType and id
  */
-Argument_ptr create_argument2(char *argument) {
+Argument_ptr create_argument2(const char *argument) {
     Argument_ptr result = malloc(sizeof(Argument));
     if (strchr(argument, '$') != NULL) {
         Array_list_ptr items = str_split(argument, '$');

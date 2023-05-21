@@ -8,7 +8,7 @@
 #include "Frameset.h"
 #include "FramesetArgument.h"
 
-Frameset_ptr create_frameset(char *id) {
+Frameset_ptr create_frameset(const char *id) {
     Frameset_ptr result = malloc(sizeof(Frameset));
     result->id = str_copy(result->id, id);
     result->frameset_arguments = create_array_list();
@@ -26,7 +26,7 @@ void free_frameset(Frameset_ptr frameset) {
  *
  * @param frameset_node  Part of Xml node to read from
  */
-Frameset_ptr create_frameset2(Xml_element_ptr frameset_node) {
+Frameset_ptr create_frameset2(const Xml_element* frameset_node) {
     Frameset_ptr result = malloc(sizeof(Frameset));
     result->frameset_arguments = create_array_list();
     result->id = get_attribute_value(frameset_node, "id");
@@ -47,7 +47,7 @@ Frameset_ptr create_frameset2(Xml_element_ptr frameset_node) {
  * @param argument_type  ArgumentType of the searched {@link Argument}
  * @return true if the {@link Argument} with the given argumentType exists, false otherwise.
  */
-bool contains_argument(Frameset_ptr frameset, Argument_type argument_type) {
+bool contains_argument(const Frameset* frameset, Argument_type argument_type) {
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
         if (get_arguments(frameset_argument->argument_type) == argument_type) {
@@ -65,7 +65,7 @@ bool contains_argument(Frameset_ptr frameset, Argument_type argument_type) {
  * @param definition Definition of the new {@link FramesetArgument}
  * @param function Function of the new {@link FramesetArgument}
  */
-void add_argument(Frameset_ptr frameset, char *type, char *definition, char *function) {
+void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function) {
     int check = 0;
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
@@ -88,7 +88,7 @@ void add_argument(Frameset_ptr frameset, char *type, char *definition, char *fun
  * @param type  Type of the to be deleted {@link FramesetArgument}
  * @param definition Definition of the to be deleted {@link FramesetArgument}
  */
-void delete_argument(Frameset_ptr frameset, char *type, char *definition) {
+void delete_argument(Frameset_ptr frameset, const char *type, const char *definition) {
     int index = -1;
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
@@ -108,6 +108,6 @@ void delete_argument(Frameset_ptr frameset, char *type, char *definition) {
  *
  * @return framesetArguments.
  */
-Array_list_ptr get_frameset_arguments(Frameset_ptr frameset) {
+Array_list_ptr get_frameset_arguments(const Frameset* frameset) {
     return frameset->frameset_arguments;
 }

@@ -20,14 +20,14 @@ Frameset_list_ptr create_frameset_list();
 
 void free_frameset_list(Frameset_list_ptr frameset_list);
 
-int size(Frameset_list_ptr frameset_list);
+int size(const Frameset_list* frameset_list);
 
-Frameset_ptr get_frameset(Frameset_list_ptr frameset_list, int index);
+Frameset_ptr get_frameset(const Frameset_list* frameset_list, int index);
 
 void add_frameset(Frameset_list_ptr frameset_list, Frameset_ptr frameset);
 
-Frameset_ptr get_frameset_with_id(Frameset_list_ptr frameset_list, char *synset_id);
+Frameset_ptr get_frameset_with_id(const Frameset_list* frameset_list, const char *synset_id);
 
-bool frame_exists(Frameset_list_ptr frameset_list, char *synset_id);
+bool frame_exists(const Frameset_list* frameset_list, const char *synset_id);
 
 #endif //PROPBANK_FRAMESETLIST_H

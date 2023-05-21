@@ -17,16 +17,16 @@ struct roleset {
 typedef struct roleset Roleset;
 typedef Roleset *Roleset_ptr;
 
-Roleset_ptr create_roleset(char *id, char *name);
+Roleset_ptr create_roleset(const char *id, const char *name);
 
 void free_roleset(Roleset_ptr roleset);
 
 void add_role(Roleset_ptr roleset, Role_ptr role);
 
-Role_ptr get_role(Roleset_ptr roleset, int index);
+Role_ptr get_role(const Roleset* roleset, int index);
 
-int size_of_roleset(Roleset_ptr roleset);
+int size_of_roleset(const Roleset* roleset);
 
-Role_ptr get_role_with_argument(Roleset_ptr roleset, char *n);
+Role_ptr get_role_with_argument(const Roleset* roleset, const char *n);
 
 #endif //PROPBANK_ROLESET_H

@@ -17,18 +17,18 @@ struct frameset {
 typedef struct frameset Frameset;
 typedef Frameset *Frameset_ptr;
 
-Frameset_ptr create_frameset(char *id);
+Frameset_ptr create_frameset(const char *id);
 
-Frameset_ptr create_frameset2(Xml_element_ptr frameset_node);
+Frameset_ptr create_frameset2(const Xml_element* frameset_node);
 
 void free_frameset(Frameset_ptr frameset);
 
-bool contains_argument(Frameset_ptr frameset, Argument_type argument_type);
+bool contains_argument(const Frameset* frameset, Argument_type argument_type);
 
-void add_argument(Frameset_ptr frameset, char *type, char *definition, char *function);
+void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function);
 
-void delete_argument(Frameset_ptr frameset, char *type, char *definition);
+void delete_argument(Frameset_ptr frameset, const char *type, const char *definition);
 
-Array_list_ptr get_frameset_arguments(Frameset_ptr frameset);
+Array_list_ptr get_frameset_arguments(const Frameset* frameset);
 
 #endif //PROPBANK_FRAMESET_H

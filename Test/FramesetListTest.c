@@ -27,8 +27,8 @@ void testArgSize(Frameset_list_ptr frameset_list) {
 }
 
 void testArgName(Frameset_list_ptr frameset_list) {
-    Counter_hash_map_ptr nameList = create_counter_hash_map((unsigned int (*)(void *, int)) hash_function_string,
-                                                            (int (*)(void *, void *)) compare_string);
+    Counter_hash_map_ptr nameList = create_counter_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
+                                                            (int (*)(const void *, const void *)) compare_string);
     for (int i = 0; i < size(frameset_list); i++) {
         Frameset_ptr frameset = get_frameset(frameset_list, i);
         for (int j = 0; j < frameset->frameset_arguments->size; j++) {
@@ -55,8 +55,8 @@ void testArgName(Frameset_list_ptr frameset_list) {
 }
 
 void testArgFunction(Frameset_list_ptr frameset_list) {
-    Counter_hash_map_ptr functionList = create_counter_hash_map((unsigned int (*)(void *, int)) hash_function_string,
-                                                                (int (*)(void *, void *)) compare_string);
+    Counter_hash_map_ptr functionList = create_counter_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
+                                                                (int (*)(const void *, const void *)) compare_string);
     for (int i = 0; i < size(frameset_list); i++) {
         Frameset_ptr frameset = get_frameset(frameset_list, i);
         for (int j = 0; j < frameset->frameset_arguments->size; j++) {

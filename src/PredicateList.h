@@ -20,10 +20,10 @@ Predicate_list_ptr create_predicate_list();
 
 void free_predicate_list(Predicate_list_ptr predicate_list);
 
-int size_of_predicate_list(Predicate_list_ptr predicate_list);
+int size_of_predicate_list(const Predicate_list* predicate_list);
 
-Predicate_ptr get_predicate(Predicate_list_ptr predicate_list, char *lemma);
+Predicate_ptr get_predicate(const Predicate_list* predicate_list, const char *lemma);
 
-Array_list_ptr get_lemma_list(Predicate_list_ptr predicate_list);
+Array_list_ptr get_lemma_list(const Predicate_list* predicate_list);
 
 #endif //PROPBANK_PREDICATELIST_H

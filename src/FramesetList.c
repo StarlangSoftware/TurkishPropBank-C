@@ -37,7 +37,7 @@ void free_frameset_list(Frameset_list_ptr frameset_list) {
  *
  * @return the size_of_roleset of the frames {@link ArrayList}.
  */
-int size(Frameset_list_ptr frameset_list) {
+int size(const Frameset_list* frameset_list) {
     return frameset_list->frames->size;
 }
 
@@ -47,7 +47,7 @@ int size(Frameset_list_ptr frameset_list) {
  * @param index  Index of the frameset_list
  * @return {@link Frameset} at the given index.
  */
-Frameset_ptr get_frameset(Frameset_list_ptr frameset_list, int index) {
+Frameset_ptr get_frameset(const Frameset_list* frameset_list, int index) {
     return array_list_get(frameset_list->frames, index);
 }
 
@@ -66,7 +66,7 @@ void add_frameset(Frameset_list_ptr frameset_list, Frameset_ptr frameset) {
  * @param synSetId  Id of the searched {@link Frameset}
  * @return {@link Frameset} which has the given id.
  */
-Frameset_ptr get_frameset_with_id(Frameset_list_ptr frameset_list, char *synset_id) {
+Frameset_ptr get_frameset_with_id(const Frameset_list* frameset_list, const char *synset_id) {
     for (int i = 0; i < frameset_list->frames->size; i++) {
         Frameset_ptr frame = array_list_get(frameset_list->frames, i);
         if (strcmp(frame->id, synset_id) == 0) {
@@ -82,7 +82,7 @@ Frameset_ptr get_frameset_with_id(Frameset_list_ptr frameset_list, char *synset_
  * @param synSetId  Id of the searched {@link Frameset}
  * @return true if the {@link Frameset} with the given id exists, false otherwise.
  */
-bool frame_exists(Frameset_list_ptr frameset_list, char *synset_id) {
+bool frame_exists(const Frameset_list* frameset_list, const char *synset_id) {
     for (int i = 0; i < frameset_list->frames->size; i++) {
         Frameset_ptr frame = array_list_get(frameset_list->frames, i);
         if (strcmp(frame->id, synset_id) == 0) {

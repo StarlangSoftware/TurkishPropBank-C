@@ -13,7 +13,7 @@
  *
  * @param _lemma  Lemma of the predicate
  */
-Predicate_ptr create_predicate(char *lemma) {
+Predicate_ptr create_predicate(const char *lemma) {
     Predicate_ptr result = malloc(sizeof(Predicate));
     result->lemma = str_copy(result->lemma, lemma);
     result->rolesets = create_array_list();
@@ -40,7 +40,7 @@ void add_roleset(Predicate_ptr predicate, Roleset_ptr roleset) {
  *
  * @return the size of the roleSets {@link ArrayList}.
  */
-int size_of_predicate(Predicate_ptr predicate) {
+int size_of_predicate(const Predicate* predicate) {
     return predicate->rolesets->size;
 }
 
@@ -50,7 +50,7 @@ int size_of_predicate(Predicate_ptr predicate) {
  * @param index  Index of the roleSet
  * @return {@link RoleSet} at the given index.
  */
-Roleset_ptr get_roleset(Predicate_ptr predicate, int index) {
+Roleset_ptr get_roleset(const Predicate* predicate, int index) {
     return array_list_get(predicate->rolesets, index);
 }
 
@@ -60,7 +60,7 @@ Roleset_ptr get_roleset(Predicate_ptr predicate, int index) {
  * @param roleId  Id of the searched roleSet
  * @return {@link RoleSet} which has the given id.
  */
-Roleset_ptr get_roleset_with_id(Predicate_ptr predicate, char *role_id) {
+Roleset_ptr get_roleset_with_id(const Predicate* predicate, const char *role_id) {
     for (int i = 0; i < predicate->rolesets->size; i++) {
         Roleset_ptr roleset = array_list_get(predicate->rolesets, i);
         if (strcmp(roleset->id, role_id) == 0) {

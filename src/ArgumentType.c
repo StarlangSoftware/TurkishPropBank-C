@@ -11,7 +11,7 @@
  * @param arguments_type  Type of the argument in string form
  * @return Type of the argument in {@link ArgumentType} form
  */
-Argument_type get_arguments(char* arguments_type){
+Argument_type get_arguments(const char* arguments_type){
     char* type = uppercase_en(arguments_type);
     Argument_type result;
     if (strcmp(type, "ARG0") == 0){

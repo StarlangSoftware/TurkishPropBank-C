@@ -14,9 +14,9 @@ struct frameset_argument {
 typedef struct frameset_argument Frameset_argument;
 typedef Frameset_argument *Frameset_argument_ptr;
 
-Frameset_argument_ptr create_frameset_argument(char *argument_type,
-                                               char *definition,
-                                               char *function);
+Frameset_argument_ptr create_frameset_argument(const char *argument_type,
+                                               const char *definition,
+                                               const char *function);
 
 void free_frameset_argument(Frameset_argument_ptr frameset_argument);
 

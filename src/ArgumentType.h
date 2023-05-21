@@ -31,7 +31,7 @@ enum argument_type {
 
 typedef enum argument_type Argument_type;
 
-Argument_type get_arguments(char *arguments_type);
+Argument_type get_arguments(const char *arguments_type);
 
 char *get_propbank_type(Argument_type argument_type);
 

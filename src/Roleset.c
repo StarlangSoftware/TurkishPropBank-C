@@ -14,7 +14,7 @@
  * @param _id  Id of the roleSet
  * @param _name Name of the roleSet
  */
-Roleset_ptr create_roleset(char *id, char *name) {
+Roleset_ptr create_roleset(const char *id, const char *name) {
     Roleset_ptr result = malloc(sizeof(Roleset));
     result->id = str_copy(result->id, id);
     result->name = str_copy(result->name, name);
@@ -44,7 +44,7 @@ void add_role(Roleset_ptr roleset, Role_ptr role) {
  * @param index  Index of the role
  * @return {@link Role} at the given index.
  */
-Role_ptr get_role(Roleset_ptr roleset, int index) {
+Role_ptr get_role(const Roleset* roleset, int index) {
     return array_list_get(roleset->roles, index);
 }
 
@@ -53,7 +53,7 @@ Role_ptr get_role(Roleset_ptr roleset, int index) {
  *
  * @return the size_of_roleset of the roles {@link ArrayList}.
  */
-int size_of_roleset(Roleset_ptr roleset) {
+int size_of_roleset(const Roleset* roleset) {
     return roleset->roles->size;
 }
 
@@ -63,7 +63,7 @@ int size_of_roleset(Roleset_ptr roleset) {
  * @param n Argument number
  * @return The role with the given argument number n.
  */
-Role_ptr get_role_with_argument(Roleset_ptr roleset, char *n) {
+Role_ptr get_role_with_argument(const Roleset* roleset, const char *n) {
     for (int i = 0; i < roleset->roles->size; i++) {
         Role_ptr role = array_list_get(roleset->roles, i);
         if (strcmp(role->n, n) == 0) {

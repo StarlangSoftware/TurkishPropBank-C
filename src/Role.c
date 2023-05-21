@@ -14,7 +14,7 @@
  * @param f  Argument Type of the role
  * @param n  Number of the role
  */
-Role_ptr create_role(char *description, char *f, char *n) {
+Role_ptr create_role(const char *description, const char *f, const char *n) {
     Role_ptr result = malloc(sizeof(Role));
     result->description = str_copy(result->description, description);
     result->f = str_copy(result->f, f);
@@ -34,7 +34,7 @@ void free_role(Role_ptr role) {
  *
  * @return Argument type for this role.
  */
-Argument_type get_argument_type(Role_ptr role) {
+Argument_type get_argument_type(const Role* role) {
     char *upper = uppercase_en(role->f);
     char *s = str_concat("ARG", upper);
     Argument_type result = get_arguments(s);
