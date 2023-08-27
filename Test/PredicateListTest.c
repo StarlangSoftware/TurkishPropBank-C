@@ -73,7 +73,7 @@ void testFunction(Predicate_list_ptr predicate_list) {
         printf("Test failed in testFunction\n");
     }
     free_array_list(lemmaList, NULL);
-    free_counter_hash_map(functionList, free);
+    free_counter_hash_map(functionList);
 }
 
 void testN(Predicate_list_ptr predicate_list) {
@@ -107,7 +107,7 @@ void testN(Predicate_list_ptr predicate_list) {
         printf("Test failed in testN\n");
     }
     free_array_list(lemmaList, NULL);
-    free_counter_hash_map(nList, free);
+    free_counter_hash_map(nList);
 }
 
 int main() {

@@ -51,7 +51,7 @@ void testArgName(Frameset_list_ptr frameset_list) {
     if (1 != count_counter_hash_map(nameList, "ARG4")) {
         printf("Test failed in testArgName\n");
     }
-    free_counter_hash_map(nameList, free);
+    free_counter_hash_map(nameList);
 }
 
 void testArgFunction(Frameset_list_ptr frameset_list) {
@@ -79,7 +79,7 @@ void testArgFunction(Frameset_list_ptr frameset_list) {
     if (14 != count_counter_hash_map(functionList, "pat")) {
         printf("Test failed in testArgFunction\n");
     }
-    free_counter_hash_map(functionList, free);
+    free_counter_hash_map(functionList);
 }
 
 int main() {
