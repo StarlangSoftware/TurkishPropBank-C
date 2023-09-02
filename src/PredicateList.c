@@ -14,8 +14,7 @@
  */
 Predicate_list_ptr create_predicate_list() {
     Predicate_list_ptr result = malloc(sizeof(Predicate_list));
-    result->list = create_hash_map((unsigned int (*)(const void *, int)) hash_function_string,
-                                   (int (*)(const void *, const void *)) compare_string);
+    result->list = create_string_hash_map();
     Xml_element_ptr framesNode, frameSetNode, predicateNode, roleSetNode, rolesNode, roleNode;
     Xml_document_ptr xmlDocument = create_xml_document("english-propbank.xml");
     parse(xmlDocument);
