@@ -8,7 +8,7 @@
 #include "Role.h"
 
 /**
- * A constructor of {@link Role} class which takes description, f, and n as inputs and initializes corresponding with these inputs.
+ * A constructor of Role class which takes description, f, and n as inputs and initializes corresponding with these inputs.
  *
  * @param description  Description of the role
  * @param f  Argument Type of the role

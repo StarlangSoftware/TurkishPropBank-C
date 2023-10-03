@@ -22,7 +22,7 @@ void free_frameset(Frameset_ptr frameset) {
 }
 
 /**
- * Another constructor of {@link Frameset} class which takes inputStream as input and reads the frameset
+ * Another constructor of Frameset class which takes inputStream as input and reads the frameset
  *
  * @param frameset_node  Part of Xml node to read from
  */
@@ -42,10 +42,10 @@ Frameset_ptr create_frameset2(const Xml_element* frameset_node) {
 }
 
 /**
- * containsArgument method which checks if there is an {@link Argument} of the given argumentType.
+ * containsArgument method which checks if there is an Argument of the given argumentType.
  *
- * @param argument_type  ArgumentType of the searched {@link Argument}
- * @return true if the {@link Argument} with the given argumentType exists, false otherwise.
+ * @param argument_type  ArgumentType of the searched Argument
+ * @return true if the Argument with the given argumentType exists, false otherwise.
  */
 bool contains_argument(const Frameset* frameset, Argument_type argument_type) {
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
@@ -58,12 +58,12 @@ bool contains_argument(const Frameset* frameset, Argument_type argument_type) {
 }
 
 /**
- * The addArgument method takes a type and a definition of a {@link FramesetArgument} as input, then it creates a new FramesetArgument from these inputs and
- * adds it to the framesetArguments {@link ArrayList}.
+ * The addArgument method takes a type and a definition of a FramesetArgument as input, then it creates a new FramesetArgument from these inputs and
+ * adds it to the framesetArguments ArrayList.
  *
- * @param type  Type of the new {@link FramesetArgument}
- * @param definition Definition of the new {@link FramesetArgument}
- * @param function Function of the new {@link FramesetArgument}
+ * @param type  Type of the new FramesetArgument
+ * @param definition Definition of the new FramesetArgument
+ * @param function Function of the new FramesetArgument
  */
 void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function) {
     int check = 0;
@@ -82,11 +82,11 @@ void add_argument(Frameset_ptr frameset, const char *type, const char *definitio
 }
 
 /**
- * The deleteArgument method takes a type and a definition of a {@link FramesetArgument} as input, then it searches for the FramesetArgument with these type and
- * definition, and if it finds removes it from the framesetArguments {@link ArrayList}.
+ * The deleteArgument method takes a type and a definition of a FramesetArgument as input, then it searches for the FramesetArgument with these type and
+ * definition, and if it finds removes it from the framesetArguments ArrayList.
  *
- * @param type  Type of the to be deleted {@link FramesetArgument}
- * @param definition Definition of the to be deleted {@link FramesetArgument}
+ * @param type  Type of the to be deleted FramesetArgument
+ * @param definition Definition of the to be deleted FramesetArgument
  */
 void delete_argument(Frameset_ptr frameset, const char *type, const char *definition) {
     int index = -1;

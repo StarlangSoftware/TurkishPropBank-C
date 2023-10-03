@@ -7,7 +7,7 @@
 #include "FramesetArgument.h"
 
 /**
- * A constructor of {@link FramesetArgument} class which takes argumentType and definition as input and initializes corresponding attributes
+ * A constructor of FramesetArgument class which takes argumentType and definition as input and initializes corresponding attributes
  *
  * @param argument_type  ArgumentType of the frameset argument
  * @param function  Function of the frameset argument

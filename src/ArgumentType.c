@@ -6,10 +6,10 @@
 #include "ArgumentType.h"
 
 /**
- * The getArguments method takes an argumentsType string and returns the {@link ArgumentType} form of it.
+ * The getArguments method takes an argumentsType string and returns the ArgumentType form of it.
  *
  * @param arguments_type  Type of the argument in string form
- * @return Type of the argument in {@link ArgumentType} form
+ * @return Type of the argument in ArgumentType form
  */
 Argument_type get_arguments(const char* arguments_type){
     char* type = uppercase_en(arguments_type);
@@ -88,9 +88,9 @@ Argument_type get_arguments(const char* arguments_type){
 }
 
 /**
- * The get_propbank_type method takes an argumentType in {@link ArgumentType} form and returns the string form of it.
+ * The get_propbank_type method takes an argumentType in ArgumentType form and returns the string form of it.
  *
- * @param argument_type  Type of the argument in {@link ArgumentType} form
+ * @param argument_type  Type of the argument in ArgumentType form
  * @return Type of the argument in string form
  */
 char *get_propbank_type(Argument_type argument_type){

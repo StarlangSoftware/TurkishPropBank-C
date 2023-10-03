@@ -9,8 +9,8 @@
 #include "Predicate.h"
 
 /**
- * A constructor of {@link PredicateList} class which reads all predicate files inside the 'Frames' folder. For each
- * file inside that folder, the constructor creates a Predicate and puts in inside the list {@link HashMap}.
+ * A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
+ * file inside that folder, the constructor creates a Predicate and puts in inside the list HashMap.
  */
 Predicate_list_ptr create_predicate_list() {
     Predicate_list_ptr result = malloc(sizeof(Predicate_list));
@@ -66,17 +66,17 @@ void free_predicate_list(Predicate_list_ptr predicate_list) {
 /**
  * The size method returns the number of predicates inside the list.
  *
- * @return the size of the list {@link HashMap}.
+ * @return the size of the list HashMap.
  */
 int size_of_predicate_list(const Predicate_list* predicate_list) {
     return predicate_list->list->count;
 }
 
 /**
- * getPredicate method returns the {@link Predicate} with the given lemma.
+ * getPredicate method returns the Predicate with the given lemma.
  *
  * @param lemma  Lemma of the searched predicate
- * @return {@link Predicate} which has the given lemma.
+ * @return Predicate which has the given lemma.
  */
 Predicate_ptr get_predicate(const Predicate_list* predicate_list, const char *lemma) {
     return hash_map_get(predicate_list->list, lemma);

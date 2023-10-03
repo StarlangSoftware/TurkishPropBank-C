@@ -8,7 +8,7 @@
 #include "Argument.h"
 
 /**
- * Another constructor of {@link Argument} class which takes argumentType and id as inputs and initializes corresponding attributes
+ * Another constructor of Argument class which takes argumentType and id as inputs and initializes corresponding attributes
  *
  * @param argument_type  Type of the argument
  * @param id  Id of the argument
@@ -27,7 +27,7 @@ void free_argument(Argument_ptr argument) {
 }
 
 /**
- * A constructor of {@link Argument} class which takes argument string which is in the form of argumentType$id
+ * A constructor of Argument class which takes argument string which is in the form of argumentType$id
  * and parses this string into argumentType and id. If the argument string does not contain '$' then the
  * constructor return a NONE type argument.
  *

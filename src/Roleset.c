@@ -8,7 +8,7 @@
 #include "Role.h"
 
 /**
- * A constructor of {@link RoleSet} class which takes _id and _name as inputs and initializes corresponding attributes
+ * A constructor of RoleSet class which takes _id and _name as inputs and initializes corresponding attributes
  * with these inputs.
  *
  * @param _id  Id of the roleSet
@@ -30,7 +30,7 @@ void free_roleset(Roleset_ptr roleset) {
 }
 
 /**
- * The addRole method takes a {@link Role} as input and adds it to the roles {@link ArrayList}.
+ * The addRole method takes a Role as input and adds it to the roles ArrayList.
  *
  * @param role  Role to be added
  */
@@ -42,16 +42,16 @@ void add_role(Roleset_ptr roleset, Role_ptr role) {
  * The getRole method returns the role at the given index.
  *
  * @param index  Index of the role
- * @return {@link Role} at the given index.
+ * @return Role at the given index.
  */
 Role_ptr get_role(const Roleset* roleset, int index) {
     return array_list_get(roleset->roles, index);
 }
 
 /**
- * The size_of_predicate method returns the size_of_roleset of the roles {@link ArrayList}.
+ * The size_of_predicate method returns the size_of_roleset of the roles ArrayList.
  *
- * @return the size_of_roleset of the roles {@link ArrayList}.
+ * @return the size_of_roleset of the roles ArrayList.
  */
 int size_of_roleset(const Roleset* roleset) {
     return roleset->roles->size;
