@@ -19,4 +19,6 @@ Argument_ptr create_argument2(const char *argument);
 
 void free_argument(Argument_ptr argument);
 
+char* argument_to_string(const Argument* argument);
+
 #endif //PROPBANK_ARGUMENT_H

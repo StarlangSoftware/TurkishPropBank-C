@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <StringUtils.h>
 #include <string.h>
+#include <stdio.h>
 #include "Argument.h"
 
 /**
@@ -45,4 +46,23 @@ Argument_ptr create_argument2(const char *argument) {
         result->id = NULL;
     }
     return result;
+}
+
+/**
+ * to_string converts an Argument to a string. If the argumentType is "NONE" returns only "NONE", otherwise
+ * it returns argument string which is in the form of argumentType$id
+ *
+ * @return string form of argument
+ */
+char *argument_to_string(const Argument *argument) {
+    char* result;
+    if (strcmp(argument->argument_type, "NONE") == 0){
+        result = malloc(5 * sizeof(char));
+        strcpy(result, "NONE");
+        return result;
+    } else {
+        result = malloc((strlen(argument->argument_type) + 2 + strlen(argument->id)) * sizeof(char));
+        sprintf(result, "%s$%s", argument->argument_type, argument->id);
+        return result;
+    }
 }
