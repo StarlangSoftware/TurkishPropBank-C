@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "ArgumentType.h"
 
 /**
@@ -83,7 +84,7 @@ Argument_type get_arguments(const char* arguments_type){
             }
         }
     }
-    free(type);
+    free_(type);
     return result;
 }
 

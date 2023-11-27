@@ -6,7 +6,6 @@
 #include "../src/FramesetArgument.h"
 #include <stdio.h>
 #include <HashMap/HashMap.h>
-#include <stdlib.h>
 #include <CounterHashMap.h>
 
 void testFrames(Frameset_list_ptr frameset_list) {

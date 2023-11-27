@@ -5,11 +5,12 @@
 #include <stdlib.h>
 #include <StringUtils.h>
 #include <stdbool.h>
+#include <Memory/Memory.h>
 #include "Frameset.h"
 #include "FramesetArgument.h"
 
 Frameset_ptr create_frameset(const char *id) {
-    Frameset_ptr result = malloc(sizeof(Frameset));
+    Frameset_ptr result = malloc_(sizeof(Frameset), "create_frameset");
     result->id = str_copy(result->id, id);
     result->frameset_arguments = create_array_list();
     return result;
@@ -17,8 +18,8 @@ Frameset_ptr create_frameset(const char *id) {
 
 void free_frameset(Frameset_ptr frameset) {
     free_array_list(frameset->frameset_arguments, (void (*)(void *)) free_frameset_argument);
-    free(frameset->id);
-    free(frameset);
+    free_(frameset->id);
+    free_(frameset);
 }
 
 /**
@@ -27,9 +28,9 @@ void free_frameset(Frameset_ptr frameset) {
  * @param frameset_node  Part of Xml node to read from
  */
 Frameset_ptr create_frameset2(const Xml_element* frameset_node) {
-    Frameset_ptr result = malloc(sizeof(Frameset));
+    Frameset_ptr result = malloc_(sizeof(Frameset), "create_frameset2");
     result->frameset_arguments = create_array_list();
-    result->id = get_attribute_value(frameset_node, "id");
+    result->id = str_copy(result->id, get_attribute_value(frameset_node, "id"));
     Xml_element_ptr argument = frameset_node->first_child;
     while (argument != NULL) {
         Frameset_argument_ptr framesetArgument = create_frameset_argument(get_attribute_value(argument, "name"),

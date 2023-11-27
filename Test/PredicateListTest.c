@@ -5,7 +5,7 @@
 #include "../src/PredicateList.h"
 #include <stdio.h>
 #include <CounterHashMap.h>
-#include <stdlib.h>
+#include <Memory/Memory.h>
 
 void testPredicateSize(Predicate_list_ptr predicate_list) {
     if (8656 != size_of_predicate_list(predicate_list)) {

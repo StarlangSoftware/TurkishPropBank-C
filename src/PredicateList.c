@@ -7,18 +7,19 @@
 #include <XmlDocument.h>
 #include "PredicateList.h"
 #include "Predicate.h"
+#include "Memory/Memory.h"
 
 /**
  * A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
  * file inside that folder, the constructor creates a Predicate and puts in inside the list HashMap.
  */
 Predicate_list_ptr create_predicate_list() {
-    Predicate_list_ptr result = malloc(sizeof(Predicate_list));
+    Predicate_list_ptr result = malloc_(sizeof(Predicate_list), "create_predicate_list");
     result->list = create_string_hash_map();
     Xml_element_ptr framesNode, frameSetNode, predicateNode, roleSetNode, rolesNode, roleNode;
-    Xml_document_ptr xmlDocument = create_xml_document("english-propbank.xml");
-    parse(xmlDocument);
-    framesNode = xmlDocument->root;
+    Xml_document_ptr xml_document = create_xml_document("english-propbank.xml");
+    parse(xml_document);
+    framesNode = xml_document->root;
     frameSetNode = framesNode->first_child;
     while (frameSetNode != NULL) {
         predicateNode = frameSetNode->first_child;
@@ -55,12 +56,13 @@ Predicate_list_ptr create_predicate_list() {
         }
         frameSetNode = frameSetNode->next_sibling;
     }
+    free_document(xml_document);
     return result;
 }
 
 void free_predicate_list(Predicate_list_ptr predicate_list) {
     free_hash_map(predicate_list->list, (void (*)(void *)) free_predicate);
-    free(predicate_list);
+    free_(predicate_list);
 }
 
 /**

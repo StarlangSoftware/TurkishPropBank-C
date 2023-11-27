@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <StringUtils.h>
+#include <Memory/Memory.h>
 #include "Roleset.h"
 #include "Role.h"
 
@@ -15,7 +16,7 @@
  * @param _name Name of the roleSet
  */
 Roleset_ptr create_roleset(const char *id, const char *name) {
-    Roleset_ptr result = malloc(sizeof(Roleset));
+    Roleset_ptr result = malloc_(sizeof(Roleset), "create_roleset");
     result->id = str_copy(result->id, id);
     result->name = str_copy(result->name, name);
     result->roles = create_array_list();
@@ -23,10 +24,10 @@ Roleset_ptr create_roleset(const char *id, const char *name) {
 }
 
 void free_roleset(Roleset_ptr roleset) {
-    free(roleset->id);
-    free(roleset->name);
+    free_(roleset->id);
+    free_(roleset->name);
     free_array_list(roleset->roles, (void (*)(void *)) free_role);
-    free(roleset);
+    free_(roleset);
 }
 
 /**

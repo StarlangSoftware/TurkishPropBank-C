@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <StringUtils.h>
-#include <ctype.h>
+#include <Memory/Memory.h>
 #include "Role.h"
 
 /**
@@ -15,7 +15,7 @@
  * @param n  Number of the role
  */
 Role_ptr create_role(const char *description, const char *f, const char *n) {
-    Role_ptr result = malloc(sizeof(Role));
+    Role_ptr result = malloc_(sizeof(Role), "create_role");
     result->description = str_copy(result->description, description);
     result->f = str_copy(result->f, f);
     result->n = str_copy(result->n, n);
@@ -23,10 +23,10 @@ Role_ptr create_role(const char *description, const char *f, const char *n) {
 }
 
 void free_role(Role_ptr role) {
-    free(role->description);
-    free(role->f);
-    free(role->n);
-    free(role);
+    free_(role->description);
+    free_(role->f);
+    free_(role->n);
+    free_(role);
 }
 
 /**
@@ -38,7 +38,7 @@ Argument_type get_argument_type(const Role* role) {
     char *upper = uppercase_en(role->f);
     char *s = str_concat("ARG", upper);
     Argument_type result = get_arguments(s);
-    free(upper);
-    free(s);
+    free_(upper);
+    free_(s);
     return result;
 }

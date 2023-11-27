@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <XmlElement.h>
 #include <XmlDocument.h>
+#include <Memory/Memory.h>
 #include "FramesetList.h"
 #include "Frameset.h"
 
@@ -13,7 +14,7 @@
  * filename inside that file, the constructor creates a Frameset and puts in inside the frames ArrayList.
  */
 Frameset_list_ptr create_frameset_list() {
-    Frameset_list_ptr frameset_list = malloc(sizeof(Frameset_list));
+    Frameset_list_ptr frameset_list = malloc_(sizeof(Frameset_list), "create_frameset_list");
     frameset_list->frames = create_array_list();
     Xml_element_ptr framesNode, frameSetNode;
     Xml_document_ptr doc = create_xml_document("turkish-propbank.xml");
@@ -24,12 +25,13 @@ Frameset_list_ptr create_frameset_list() {
         add_frameset(frameset_list, create_frameset2(frameSetNode));
         frameSetNode = frameSetNode->next_sibling;
     }
+    free_document(doc);
     return frameset_list;
 }
 
 void free_frameset_list(Frameset_list_ptr frameset_list) {
     free_array_list(frameset_list->frames, (void (*)(void *)) free_frameset);
-    free(frameset_list);
+    free_(frameset_list);
 }
 
 /**

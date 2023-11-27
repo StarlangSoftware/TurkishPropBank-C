@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <StringUtils.h>
+#include <Memory/Memory.h>
 #include "Predicate.h"
 #include "Roleset.h"
 
@@ -14,16 +15,16 @@
  * @param _lemma  Lemma of the predicate
  */
 Predicate_ptr create_predicate(const char *lemma) {
-    Predicate_ptr result = malloc(sizeof(Predicate));
+    Predicate_ptr result = malloc_(sizeof(Predicate), "create_predicate");
     result->lemma = str_copy(result->lemma, lemma);
     result->rolesets = create_array_list();
     return result;
 }
 
 void free_predicate(Predicate_ptr predicate) {
-    free(predicate->lemma);
+    free_(predicate->lemma);
     free_array_list(predicate->rolesets, (void (*)(void *)) free_roleset);
-    free(predicate);
+    free_(predicate);
 }
 
 /**

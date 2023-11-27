@@ -6,6 +6,7 @@
 #include <StringUtils.h>
 #include <string.h>
 #include <stdio.h>
+#include <Memory/Memory.h>
 #include "Argument.h"
 
 /**
@@ -15,16 +16,16 @@
  * @param id  Id of the argument
  */
 Argument_ptr create_argument(const char *argument_type, const char *id) {
-    Argument_ptr result = malloc(sizeof(Argument));
+    Argument_ptr result = malloc_(sizeof(Argument), "create_argument");
     result->argument_type = str_copy(result->argument_type, argument_type);
     result->id = str_copy(result->id, id);
     return result;
 }
 
 void free_argument(Argument_ptr argument) {
-    free(argument->argument_type);
-    free(argument->id);
-    free(argument);
+    free_(argument->argument_type);
+    free_(argument->id);
+    free_(argument);
 }
 
 /**
@@ -35,7 +36,7 @@ void free_argument(Argument_ptr argument) {
  * @param argument  Argument string containing the argumentType and id
  */
 Argument_ptr create_argument2(const char *argument) {
-    Argument_ptr result = malloc(sizeof(Argument));
+    Argument_ptr result = malloc_(sizeof(Argument), "create_argument2");
     if (strchr(argument, '$') != NULL) {
         Array_list_ptr items = str_split(argument, '$');
         result->argument_type = array_list_get(items, 0);
@@ -57,11 +58,11 @@ Argument_ptr create_argument2(const char *argument) {
 char *argument_to_string(const Argument *argument) {
     char* result;
     if (strcmp(argument->argument_type, "NONE") == 0){
-        result = malloc(5 * sizeof(char));
+        result = malloc_(5 * sizeof(char), "argument_to_string_1");
         strcpy(result, "NONE");
         return result;
     } else {
-        result = malloc((strlen(argument->argument_type) + 2 + strlen(argument->id)) * sizeof(char));
+        result = malloc_((strlen(argument->argument_type) + 2 + strlen(argument->id)) * sizeof(char), "argument_to_string_2");
         sprintf(result, "%s$%s", argument->argument_type, argument->id);
         return result;
     }

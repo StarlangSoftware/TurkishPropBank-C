@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <StringUtils.h>
+#include <Memory/Memory.h>
 #include "FramesetArgument.h"
 
 /**
@@ -14,7 +15,7 @@
  * @param definition  Definition of the frameset argument
  */
 Frameset_argument_ptr create_frameset_argument(const char *argument_type, const char *definition, const char *function) {
-    Frameset_argument_ptr result = malloc(sizeof(Frameset_argument));
+    Frameset_argument_ptr result = malloc_(sizeof(Frameset_argument), "create_frameset_argument");
     result->argument_type = str_copy(result->argument_type, argument_type);
     result->function = str_copy(result->function, function);
     result->definition = str_copy(result->definition, definition);
@@ -22,8 +23,8 @@ Frameset_argument_ptr create_frameset_argument(const char *argument_type, const 
 }
 
 void free_frameset_argument(Frameset_argument_ptr frameset_argument) {
-    free(frameset_argument->argument_type);
-    free(frameset_argument->function);
-    free(frameset_argument->definition);
-    free(frameset_argument);
+    free_(frameset_argument->argument_type);
+    free_(frameset_argument->function);
+    free_(frameset_argument->definition);
+    free_(frameset_argument);
 }
