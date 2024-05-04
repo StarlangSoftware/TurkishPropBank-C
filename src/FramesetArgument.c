@@ -22,6 +22,10 @@ Frameset_argument_ptr create_frameset_argument(const char *argument_type, const 
     return result;
 }
 
+/**
+ * Destructor for the frameset argument class. Frees memory allocated for argument type, function, definition.
+ * @param frameset_argument Current frameset argument
+ */
 void free_frameset_argument(Frameset_argument_ptr frameset_argument) {
     free_(frameset_argument->argument_type);
     free_(frameset_argument->function);

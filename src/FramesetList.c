@@ -29,6 +29,10 @@ Frameset_list_ptr create_frameset_list() {
     return frameset_list;
 }
 
+/**
+ * Destructor for the frameset list object. Frees memory allocated for the array list frames.
+ * @param frameset_list Current frameset list.
+ */
 void free_frameset_list(Frameset_list_ptr frameset_list) {
     free_array_list(frameset_list->frames, (void (*)(void *)) free_frameset);
     free_(frameset_list);

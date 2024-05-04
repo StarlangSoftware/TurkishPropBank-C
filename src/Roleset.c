@@ -23,6 +23,10 @@ Roleset_ptr create_roleset(const char *id, const char *name) {
     return result;
 }
 
+/**
+ * Destructor of the RoleSet class. Frees memory allocated for id, name, and roles array list.
+ * @param roleset Current role set.
+ */
 void free_roleset(Roleset_ptr roleset) {
     free_(roleset->id);
     free_(roleset->name);

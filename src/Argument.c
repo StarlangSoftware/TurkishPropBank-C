@@ -22,6 +22,10 @@ Argument_ptr create_argument(const char *argument_type, const char *id) {
     return result;
 }
 
+/**
+ * Destructor for the Argument class. Free memory allocated for argument type, id.
+ * @param argument Current argument.
+ */
 void free_argument(Argument_ptr argument) {
     free_(argument->argument_type);
     free_(argument->id);

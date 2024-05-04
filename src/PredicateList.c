@@ -60,6 +60,10 @@ Predicate_list_ptr create_predicate_list() {
     return result;
 }
 
+/**
+ * Destructor of PredicateList object. Frees memory allocated for list hash map.
+ * @param predicate_list Current predicate list.
+ */
 void free_predicate_list(Predicate_list_ptr predicate_list) {
     free_hash_map(predicate_list->list, (void (*)(void *)) free_predicate);
     free_(predicate_list);

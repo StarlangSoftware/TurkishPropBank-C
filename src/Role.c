@@ -22,6 +22,10 @@ Role_ptr create_role(const char *description, const char *f, const char *n) {
     return result;
 }
 
+/**
+ * Destructor for the Role class. Frees memory allocated for description, f, and n.
+ * @param role Current role.
+ */
 void free_role(Role_ptr role) {
     free_(role->description);
     free_(role->f);

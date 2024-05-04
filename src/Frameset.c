@@ -9,6 +9,11 @@
 #include "Frameset.h"
 #include "FramesetArgument.h"
 
+/**
+ * A constructor of Frameset class which takes id as input and initializes corresponding attribute
+ *
+ * @param id  Id of the frameset
+ */
 Frameset_ptr create_frameset(const char *id) {
     Frameset_ptr result = malloc_(sizeof(Frameset), "create_frameset");
     result->id = str_copy(result->id, id);
@@ -16,6 +21,10 @@ Frameset_ptr create_frameset(const char *id) {
     return result;
 }
 
+/**
+ * Destructor for the FrsmeNet class. Frees memory allocated to frameset_arguments array list and id.
+ * @param frameset Current frameset.
+ */
 void free_frameset(Frameset_ptr frameset) {
     free_array_list(frameset->frameset_arguments, (void (*)(void *)) free_frameset_argument);
     free_(frameset->id);

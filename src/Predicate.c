@@ -21,6 +21,10 @@ Predicate_ptr create_predicate(const char *lemma) {
     return result;
 }
 
+/**
+ * Destructor for the Predicate class. Frees memory allocated for lemma and array list rolesets.
+ * @param predicate Current predicate
+ */
 void free_predicate(Predicate_ptr predicate) {
     free_(predicate->lemma);
     free_array_list(predicate->rolesets, (void (*)(void *)) free_roleset);
