@@ -39,17 +39,17 @@ char* argument_list_to_string(Argument_list_ptr argument_list) {
     char* result;
     char** arguments;
     if (argument_list->arguments->size == 0) {
-        result = malloc_(5 * sizeof(char), "argument_to_string_1");
+        result = malloc_(5 * sizeof(char), "argument_list_to_string_1");
         strcpy(result, "NONE");
         return result;
     } else {
-        arguments = malloc_(argument_list->arguments->size * sizeof(char*), "argument_to_string_2");
+        arguments = malloc_(argument_list->arguments->size * sizeof(char*), "argument_list_to_string_2");
         int size = 0;
         for (int i = 0; i < argument_list->arguments->size; i++) {
             arguments[i] = argument_to_string(array_list_get(argument_list->arguments, i));
             size += strlen(arguments[i]);
         }
-        result = malloc_(size * sizeof(char), "argument_to_string_3");
+        result = malloc_(size * sizeof(char), "argument_list_to_string_3");
         sprintf(result, "%s", arguments[0]);
         for (int i = 1; i < argument_list->arguments->size; i++) {
             sprintf(result, "%s#%s", result, arguments[i]);
