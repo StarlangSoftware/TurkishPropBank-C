@@ -67,7 +67,7 @@ char* argument_list_to_string(Argument_list_ptr argument_list) {
  * @param previous_id Previous id of the synset.
  * @param current_id Replacement id.
  */
-void update_connected_id(Argument_list_ptr argument_list, const char *previous_id, const char *current_id) {
+void update_connected_id_in_argument_list(Argument_list_ptr argument_list, const char *previous_id, const char *current_id) {
     for (int i = 0; i < argument_list->arguments->size; i++) {
         Argument_ptr argument = array_list_get(argument_list->arguments, i);
         if (strcmp(previous_id, argument->id) == 0) {
@@ -82,7 +82,7 @@ void update_connected_id(Argument_list_ptr argument_list, const char *previous_i
  * @param argument_list Argument list
  * @param predicate_id Synset id of this predicate.
  */
-void add_predicate(Argument_list_ptr argument_list, const char *predicate_id) {
+void add_predicate_to_argument_list(Argument_list_ptr argument_list, const char *predicate_id) {
     if (argument_list->arguments->size != 0 && strcmp(((Argument_ptr)array_list_get(argument_list->arguments, 0))->argument_type, "NONE") == 0) {
         array_list_remove(argument_list->arguments, 0, (void (*)(void *)) free_argument);
     }
@@ -93,7 +93,7 @@ void add_predicate(Argument_list_ptr argument_list, const char *predicate_id) {
  * Removes the predicate with the given predicate id.
  * @param argument_list Argument list
  */
-void remove_predicate(Argument_list_ptr argument_list) {
+void remove_predicate_from_argument_list(Argument_list_ptr argument_list) {
     for (int i = 0; i < argument_list->arguments->size; i++) {
         Argument_ptr argument = array_list_get(argument_list->arguments, i);
         if (strcmp(argument->argument_type, "PREDICATE") == 0) {
@@ -108,7 +108,7 @@ void remove_predicate(Argument_list_ptr argument_list) {
  * @param argument_list Argument list
  * @return True, if one of the arguments is predicate; false otherwise.
  */
-bool contains_predicate(Argument_list_ptr argument_list) {
+bool contains_predicate_in_argument_list(Argument_list_ptr argument_list) {
     for (int i = 0; i < argument_list->arguments->size; i++) {
         Argument_ptr argument = array_list_get(argument_list->arguments, i);
         if (strcmp(argument->argument_type, "PREDICATE") == 0) {
@@ -124,7 +124,7 @@ bool contains_predicate(Argument_list_ptr argument_list) {
  * @param predicate_id Synset id to check.
  * @return True, if one of the arguments is predicate; false otherwise.
  */
-bool contains_predicate_with_id(Argument_list_ptr argument_list, const char *predicate_id) {
+bool contains_predicate_with_id_in_argument_list(Argument_list_ptr argument_list, const char *predicate_id) {
     for (int i = 0; i < argument_list->arguments->size; i++) {
         Argument_ptr argument = array_list_get(argument_list->arguments, i);
         if (strcmp(argument->argument_type, "PREDICATE") == 0 && strcmp(predicate_id, argument->id) == 0) {

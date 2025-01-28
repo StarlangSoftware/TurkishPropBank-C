@@ -19,15 +19,15 @@ void free_argument_list(Argument_list_ptr argument_list);
 
 char* argument_list_to_string(Argument_list_ptr argument_list);
 
-void update_connected_id(Argument_list_ptr argument_list, const char *previous_id, const char *current_id);
+void update_connected_id_in_argument_list(Argument_list_ptr argument_list, const char *previous_id, const char *current_id);
 
-void add_predicate(Argument_list_ptr argument_list, const char *predicate_id);
+void add_predicate_to_argument_list(Argument_list_ptr argument_list, const char *predicate_id);
 
-void remove_predicate(Argument_list_ptr argument_list);
+void remove_predicate_from_argument_list(Argument_list_ptr argument_list);
 
-bool contains_predicate(Argument_list_ptr argument_list);
+bool contains_predicate_in_argument_list(Argument_list_ptr argument_list);
 
-bool contains_predicate_with_id(Argument_list_ptr argument_list, const char *predicate_id);
+bool contains_predicate_with_id_in_argument_list(Argument_list_ptr argument_list, const char *predicate_id);
 
 Array_list_ptr get_arguments_in_argument_list(Argument_list_ptr argument_list);
 
