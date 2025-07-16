@@ -44,7 +44,8 @@ Frameset_ptr create_frameset2(const Xml_element* frameset_node) {
     while (argument != NULL) {
         Frameset_argument_ptr framesetArgument = create_frameset_argument(get_attribute_value(argument, "name"),
                                                                           argument->pcData,
-                                                                          get_attribute_value(argument, "function"));
+                                                                          get_attribute_value(argument, "function"),
+                                                                          get_attribute_value(argument, "grammaticalCase"));
         array_list_add(result->frameset_arguments, framesetArgument);
         argument = argument->next_sibling;
     }
@@ -75,7 +76,7 @@ bool contains_argument(const Frameset* frameset, Argument_type argument_type) {
  * @param definition Definition of the new FramesetArgument
  * @param function Function of the new FramesetArgument
  */
-void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function) {
+void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function, const char *grammatical_case) {
     int check = 0;
     for (int i = 0; i < frameset->frameset_arguments->size; i++) {
         Frameset_argument_ptr frameset_argument = array_list_get(frameset->frameset_arguments, i);
@@ -86,7 +87,7 @@ void add_argument(Frameset_ptr frameset, const char *type, const char *definitio
         }
     }
     if (!check) {
-        Frameset_argument_ptr frameset_argument = create_frameset_argument(type, definition, function);
+        Frameset_argument_ptr frameset_argument = create_frameset_argument(type, definition, function, grammatical_case);
         array_list_add(frameset->frameset_arguments, frameset_argument);
     }
 }

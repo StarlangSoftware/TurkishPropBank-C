@@ -25,7 +25,7 @@ void free_frameset(Frameset_ptr frameset);
 
 bool contains_argument(const Frameset* frameset, Argument_type argument_type);
 
-void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function);
+void add_argument(Frameset_ptr frameset, const char *type, const char *definition, const char *function, const char *grammatical_case);
 
 void delete_argument(Frameset_ptr frameset, const char *type, const char *definition);
 
