@@ -9,7 +9,7 @@
 #include <CounterHashMap.h>
 
 void testFrames(Frameset_list_ptr frameset_list) {
-    if (17692 != size(frameset_list)) {
+    if (17531 != size(frameset_list)) {
         printf("Test failed in testFrames\n");
     }
 }
@@ -20,7 +20,7 @@ void testArgSize(Frameset_list_ptr frameset_list) {
         Frameset_ptr frameset = get_frameset(frameset_list, i);
         count += frameset->frameset_arguments->size;
     }
-    if (29761 != count) {
+    if (29473 != count) {
         printf("Test failed in testArgSize\n");
     }
 }
@@ -57,25 +57,25 @@ void testCase(Frameset_list_ptr frameset_list) {
             }
         }
     }
-    if (422 != count_counter_hash_map(caseList, "abl")) {
+    if (418 != count_counter_hash_map(caseList, "abl")) {
         printf("Test failed in testCase abl\n");
     }
-    if (4690 != count_counter_hash_map(caseList, "acc")) {
+    if (4633 != count_counter_hash_map(caseList, "acc")) {
         printf("Test failed in testCase acc\n");
     }
-    if (2423 != count_counter_hash_map(caseList, "dat")) {
+    if (2402 != count_counter_hash_map(caseList, "dat")) {
         printf("Test failed in testCase dat\n");
     }
-    if (880 != count_counter_hash_map(caseList, "gen")) {
+    if (870 != count_counter_hash_map(caseList, "gen")) {
         printf("Test failed in testCase gen\n");
     }
-    if (459 != count_counter_hash_map(caseList, "ins")) {
+    if (451 != count_counter_hash_map(caseList, "ins")) {
         printf("Test failed in testCase ins\n");
     }
-    if (673 != count_counter_hash_map(caseList, "loc")) {
+    if (666 != count_counter_hash_map(caseList, "loc")) {
         printf("Test failed in testCase loc\n");
     }
-    if (2069 != count_counter_hash_map(caseList, "nom")) {
+    if (2049 != count_counter_hash_map(caseList, "nom")) {
         printf("Test failed in testCase nom\n");
     }
     free_counter_hash_map(caseList);
@@ -91,16 +91,16 @@ void testArgName(Frameset_list_ptr frameset_list) {
             put_counter_hash_map(nameList, argument->argument_type);
         }
     }
-    if (14669 != count_counter_hash_map(nameList, "ARG0")) {
+    if (14535 != count_counter_hash_map(nameList, "ARG0")) {
         printf("Test failed in testArgName\n");
     }
-    if (13127 != count_counter_hash_map(nameList, "ARG1")) {
+    if (12996 != count_counter_hash_map(nameList, "ARG1")) {
         printf("Test failed in testArgName\n");
     }
-    if (1886 != count_counter_hash_map(nameList, "ARG2")) {
+    if (1865 != count_counter_hash_map(nameList, "ARG2")) {
         printf("Test failed in testArgName\n");
     }
-    if (78 != count_counter_hash_map(nameList, "ARG3")) {
+    if (76 != count_counter_hash_map(nameList, "ARG3")) {
         printf("Test failed in testArgName\n");
     }
     if (1 != count_counter_hash_map(nameList, "ARG4")) {
@@ -119,19 +119,37 @@ void testArgFunction(Frameset_list_ptr frameset_list) {
             put_counter_hash_map(functionList, argument->function);
         }
     }
-    if (481 != count_counter_hash_map(functionList, "com")) {
+    if (475 != count_counter_hash_map(functionList, "com")) {
         printf("Test failed in testArgFunction\n");
     }
     if (14 != count_counter_hash_map(functionList, "ext")) {
         printf("Test failed in testArgFunction\n");
     }
-    if (814 != count_counter_hash_map(functionList, "loc")) {
+    if (808 != count_counter_hash_map(functionList, "loc")) {
         printf("Test failed in testArgFunction\n");
     }
-    if (198 != count_counter_hash_map(functionList, "rec")) {
+    if (195 != count_counter_hash_map(functionList, "rec")) {
         printf("Test failed in testArgFunction\n");
     }
-    if (14 != count_counter_hash_map(functionList, "pat")) {
+    if (13 != count_counter_hash_map(functionList, "pat")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (10579 != count_counter_hash_map(functionList, "ppt")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (597 != count_counter_hash_map(functionList, "src")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (794 != count_counter_hash_map(functionList, "gol")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (156 != count_counter_hash_map(functionList, "tmp")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (14425 != count_counter_hash_map(functionList, "pag")) {
+        printf("Test failed in testArgFunction\n");
+    }
+    if (1417 != count_counter_hash_map(functionList, "dir")) {
         printf("Test failed in testArgFunction\n");
     }
     free_counter_hash_map(functionList);
